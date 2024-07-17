@@ -28,6 +28,7 @@ class Snake:
             self.add_segment(position)
 
     def add_segment(self, position):
+        """Add a single segment to a position"""
         segment = Turtle("square")
         segment.color("white")
         segment.penup()
@@ -35,9 +36,11 @@ class Snake:
         self.segments.append(segment)
 
     def extend(self):
+        """Add a new segment to the end of the snake"""
         self.add_segment(self.segments[-1].position())
 
     def reset(self):
+        """Reset the snake"""
         for segment in self.segments:
             segment.hideturtle()
         self.segments.clear()
@@ -45,7 +48,6 @@ class Snake:
         self.head = self.segments[0]
 
     def move(self):
-
         """Move the snake forward 20"""
         # iterates from the last position backwards until 1 (position 0 will be managed outside the for loop)
         for index in range(len(self.segments) - 1, 0, -1):
@@ -53,23 +55,27 @@ class Snake:
             position_next = self.segments[index - 1].position()
 
             # current segment gets the position of the next segment
-            self.segments[index].goto(position_next[0], position_next[1])
+            self.segments[index].goto(position_next)
 
-        # the first position, snake head
+        # the first position, snake head:
         self.head.forward(MOVE_DISTANCE)
 
     def up(self):
+        """Move the snake up"""
         if not self.head.heading() == DOWN:
             self.head.setheading(UP)
 
     def down(self):
+        """Move the snake down"""
         if not self.head.heading() == UP:
             self.head.setheading(DOWN)
 
     def left(self):
+        """Move the snake left"""
         if not self.head.heading() == RIGHT:
             self.head.setheading(LEFT)
 
     def right(self):
+        """Move the snake right"""
         if not self.head.heading() == LEFT:
             self.head.setheading(RIGHT)

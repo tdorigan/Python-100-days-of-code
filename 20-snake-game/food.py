@@ -15,6 +15,7 @@ class Food(Turtle):
         self.go_to_random_position()
 
     def go_to_random_position(self):
+        """Set a random position for the food on the screen"""
         random_x = random.randint(-290, 290)
         random_y = random.randint(-290, 290)
         self.goto(random_x, random_y)

@@ -1,3 +1,5 @@
+"""Snake Game: Use the arrows to move the snake."""
+
 from turtle import Screen
 from snake import Snake
 from food import Food
@@ -6,6 +8,7 @@ import time
 
 
 def add_key_listeners():
+    """Add key listeners"""
     screen.listen()
     screen.onkey(snake.up, "Up")
     screen.onkey(snake.up, "w")
@@ -17,6 +20,7 @@ def add_key_listeners():
     screen.onkey(snake.right, "d")
 
 
+# setup screen
 screen = Screen()
 screen.setup(width=600, height=600)
 screen.bgcolor("black")
@@ -51,7 +55,7 @@ while not game_over:
             or snake.head.xcor() > 280
             or snake.head.ycor() < -280
             or snake.head.ycor() > 280):
-        score.reset()
+        score.reset_score()
         snake.reset()
 
     # detect collision with tail
@@ -59,7 +63,7 @@ while not game_over:
     for segment in snake.segments[1:]:
         # check if the head is close of the other segments
         if snake.head.distance(segment) < 10:
-            score.reset()
+            score.reset_score()
             snake.reset()
 
 
