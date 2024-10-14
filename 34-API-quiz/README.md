@@ -14,26 +14,6 @@ A simple quiz app that fetches **True/False** questions from an API and presents
 - `requests` library
 - `tkinter` for GUI
 
-## Setup
-
-1. Clone the repository:
-
-    ```bash
-    git clone https://github.com/your-username/quiz-app.git
-    ```
-
-2. Install dependencies:
-
-    ```bash
-    pip install requests
-    ```
-
-3. Run the app:
-
-    ```bash
-    python main.py
-    ```
-
 ## API
 
 The quiz uses the [Open Trivia Database API](https://opentdb.com/api_config.php) to get **True/False** questions.
